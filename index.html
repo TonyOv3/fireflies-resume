@@ -1007,11 +1007,13 @@
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        // Default to dark mode for first-time visitors
+        const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'dark') {
             body.classList.add('dark');
             themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌙';
         }
         
         themeToggle.addEventListener('click', () => {
